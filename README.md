@@ -1,13 +1,15 @@
-Lai-Yang Algorithm for Global Snapshot Recording
+# Lai-Yang Algorithm for Global Snapshot Recording
 
+## Introduction:
 Code has been tested for python 3.8 on Linux. Code should also work on python 3.7+ Windows 10. No Additional libraries or class files are required. All code is self contained in the single file.
 
 To run the code,
 
-python process.py
+`python process.py`
 
 Included in the script are all the steps in the process. Please check the Execution Section.
 
+## Execution:
 Processes involved in the algorithm should be initialized with the Process class. A friendly process number or a name and the initial balance should be provided.
 
 Next the neighbours for the process need to be specified. This is done to simulate the distributed system.
@@ -16,14 +18,17 @@ An orchestrator for the algorithm can be initialized using the Orchestrator clas
 
 The orchestrator has methods for sending messages between the processes and acting as a channel, setting the orchestrator process used to verify the global stateand calculate the global balance.
 
-send_message() method takes the sender process and receiver process and transfers the specified amount from sender to receiver. For the sake of simplicity and focusing mainly on the algorithm checks like no balance and invalid balance input are not included. However, balance underflow conditions will not impact the global balance verification check.
+`send_message()` method takes the sender process and receiver process and transfers the specified amount from sender to receiver. For the sake of simplicity and focusing mainly on the algorithm checks like no balance and invalid balance input are not included. However, balance underflow conditions will not impact the global balance verification check.
 
-set_orchestrator() method will denote the selected process as the orchestrator that will invoke the algorithm, collect the local states and verify if the global state is consistent or not. No explicit calls for verification are required as the orchestrator process will automatically verify the global state once it recieves the local states of the participating processes.
+`set_orchestrator()` method will denote the selected process as the orchestrator that will invoke the algorithm, collect the local states and verify if the global state is consistent or not. No explicit calls for verification are required as the orchestrator process will automatically verify the global state once it recieves the local states of the participating processes.
 
-Process colors are printed between multiple transactions to keep track of the process colors. This is done for knowing the state of the processes involved in the algorithm. These can be disabled by inserting a '#' before the statements.
+Process colors are printed between multiple transactions to keep track of the process colors. This is done for knowing the state of the processes involved in the algorithm. These can be disabled by inserting a `'#'` before the statements.
 
 Sample Output is shown below:
 
+**Output:**
+
+```
 P1 has: 6000
 P2 has: 6500
 P3 has: 7000
@@ -59,3 +64,5 @@ P4 has: 6990
 Combined Balance at end is: 26300
 Process colors are:
 white white white white
+
+```
